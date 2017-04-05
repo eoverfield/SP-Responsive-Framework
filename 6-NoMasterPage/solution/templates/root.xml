@@ -16,9 +16,6 @@
         <pnp:File Src="SiteAssets\BlueGradBG.png" Folder="SiteAssets" Overwrite="true" />
         <pnp:File Src="SiteAssets\GradLeft.png" Folder="SiteAssets" Overwrite="true" />
         <pnp:File Src="SiteAssets\GradRight.png" Folder="SiteAssets" Overwrite="true" />
-
-        <pnp:File Src="SiteAssets\demo-responsive-fabric-content.html" Folder="SiteAssets" Overwrite="true" />
-
       </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
