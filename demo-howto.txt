@@ -1,0 +1,115 @@
+﻿#prep:
+#cd to the working directory of this file
+#if you want to load up in VS Code, execute the following command
+code .
+
+#NOTES:
+#In the exampes below, replace "yourtenant" with your SPO tenant, or the entire site collection path with your site collection path:
+
+
+#Demo 1 - SharePoint Responsive UI
+#instructions: https://dev.office.com/patterns-and-practices-detail/7267
+#demo site: https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"
+
+cd "1-SPResponsiveUI\PnP-Tools-master\Solutions\SharePoint.UI.Responsive"
+
+#enable
+$creds = Get-Credential
+.\Enable-SPResponsiveUI.ps1 -TargetSiteurl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds
+
+#review code
+
+#disable
+Connect-PnPOnline "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning""  -Credentials $creds
+
+Disable-PnPResponsiveUI
+
+
+
+#demo 2 - Set up a modern dev env
+#https://dev.office.com/sharepoint/docs/spfx/set-up-your-development-environment
+#NodeJS, npm, gulp, code editor, Ruby/sass
+
+cd ../../../../2-ModernDevEnv
+#install node packages
+npm install
+
+#best to run in its own powershell
+gulp serve
+
+#https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"/_layouts/15/changesitemasterpage.aspx
+#set alt css to https://localhost:3000/SiteAssets/custom.css
+
+#review code and process / node/npm/gulp/babel/tasks/local build
+
+#unset alt css
+
+
+#demo 3 Provisioning
+cd ../3-ProvisioningPnP
+cd solution
+
+#ensure that gulp serve has been run
+.\Provision-Branding.ps1 -TargetWebUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds -ServeLocal $true
+#second method to deploy actual files to SP
+.\Provision-Branding.ps1 -TargetWebUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds -ServeLocal $false
+
+#disable before moving forward
+.\Disable-Branding.ps1 -TargetWebUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds
+
+
+
+
+
+#demo 4 - Responsive Grid
+cd ../../4-ResponsiveGrid
+
+#download Bootstrap source
+#https://v4-alpha.getbootstrap.com/getting-started/download/#bootstrap-css-and-js
+    
+#Update style.scss to include grid
+#update gulpfile.babel.js to include js from bootstrap
+#review solution\templates\SiteAssets\demo-responsive-content.html to review bootstrap components
+
+#demo page: https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"/SitePages/Demo%20Bootstrap%20Grid%20Page.aspx
+
+gulp serve
+cd solution
+
+#provision
+.\Provision-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds -ServeLocal $true
+
+#disable before moving forward
+.\Disable-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds
+
+
+#demo 5 - External Libraries
+cd ../../5-ExternalLibrary
+
+#download Office UI Fabric
+#https://github.com/OfficeDev/office-ui-fabric-core/
+#https://github.com/OfficeDev/office-ui-fabric-js/
+
+#demo page: https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"/SitePages/Demo%20Fabric%20Grid%20Page.aspx
+
+gulp serve
+cd solution
+
+.\Provision-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds -ServeLocal $true
+
+#disable before moving forward
+.\Disable-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds
+
+
+#demo 6 - No master page
+cd ..\..\6-NoMasterPage
+
+gulp serve
+cd solution
+
+#look at handlebars
+.\Provision-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds -ServeLocal $true
+
+#disable before moving forward
+.\Disable-Branding.ps1 -TargetSiteUrl "https://"yourtenent".sharepoint.com/sites/"demo-pnp-provisioning"" -Credentials $creds
+

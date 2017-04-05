@@ -1,0 +1,33 @@
+//add Bootstrap grid
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/bootstrap-grid.scss";
+
+//Bootstrap 4 alerts and helpers
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/mixins/alert";
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/mixins/border-radius";
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/mixins/hover";
+
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/close";
+@import "../../src/bootstrap-4.0.0-alpha.6/scss/alert";
+
+//custom sass
+@import "variables/color-palette";
+
+@import "mixins/breakpoints";
+@import "mixins/respond-to";
+
+@import "classes/mobile-nav-absolute";
+@import "classes/td";
+
+@import "components/header";
+@import "components/navigation-left";
+
+@import "layouts/general";
+@import "layouts/home";
+@import "layouts/pm-edit-mode";
+
+#s4-bodyContainer {
+	background-color: $pagebg-color;
+	background-image: url('BlueGradBG.png');
+	background-repeat: repeat-x;
+	min-height: 100%;
+}

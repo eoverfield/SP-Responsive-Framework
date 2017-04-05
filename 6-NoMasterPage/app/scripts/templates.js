@@ -1,0 +1,8 @@
+this["Handlebars"] = this["Handlebars"] || {};
+this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
+this["Handlebars"]["templates"]["footer"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div id=\"pm-footer\">\r\n	<div class=\"inner\">\r\n		<div id=\"footer-logo\"><div class=\"sr-only\">Contoso</div></div>\r\n		<div id=\"footer-nav\">\r\n			<!--nav will go here-->\r\n		</div>\r\n	</div>\r\n</div>";
+},"useData":true});
+this["Handlebars"]["templates"]["header"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div>\r\n<header id=\"pm-header\">\r\n	<div id=\"pm-header-inner\">\r\n		<div id=\"pm-logo\">\r\n			<h1>\r\n				<div id=\"pm-site-logo\">\r\n				</div>\r\n				<span id=\"pm-site-title\">\r\n				</span>\r\n			</h1>\r\n		</div>\r\n		<div id=\"pm-topnav\">\r\n			<div id=\"pm-topnav-wrapper\">\r\n			</div>\r\n			\r\n			<ul class=\"o365cs-base\" id=\"pm-toggles\">\r\n				<li id=\"search-toggle\"><a href=\"#\"><span class=\"ms-Icon ms-Icon--search\"></span></a></li>\r\n				<li id=\"contact-toggle\"><a href=\"#\"><span class=\"ms-Icon ms-Icon--phone\"></span></a></li>\r\n			</ul>\r\n		</div>\r\n		\r\n		\r\n	</div>\r\n</header>\r\n<div id=\"pm-search\">\r\n</div>\r\n<div id=\"pm-contact\">\r\n	<div class=\"inner\">\r\n		<strong>Site Contact:</strong> Eric Overfield at eoverfield@pixelmill.com.\r\n	</div>\r\n</div>\r\n</div>";
+},"useData":true});

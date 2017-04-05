@@ -1,0 +1,31 @@
+//add Fabric components
+@import "../../src/office-ui-fabric-core-master/dist/sass/Fabric.scss";
+
+//@import "../../src/office-ui-fabric-js-master/dist/css/fabric.components.css";
+@import "fabric.components.min.css";
+
+//custom sass
+@import "variables/color-palette";
+
+@import "mixins/breakpoints";
+@import "mixins/respond-to";
+
+@import "classes/mobile-nav-absolute";
+@import "classes/td";
+
+@import "components/contact-dropdown";
+@import "components/header-custom";
+@import "components/navigation-left";
+
+@import "components/footer";
+
+@import "layouts/general";
+@import "layouts/home";
+@import "layouts/pm-edit-mode";
+
+#s4-bodyContainer {
+	background-color: $pagebg-color;
+	background-image: url('BlueGradBG.png');
+	background-repeat: repeat-x;
+	min-height: 100%;
+}
